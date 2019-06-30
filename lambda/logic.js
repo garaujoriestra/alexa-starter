@@ -10,7 +10,7 @@ module.exports = {
             month: today.month() + 1
         }
     },
-    getApiCall() {
+    async getApiCall() {
         const endpoint = 'https://query.wikidata.org/sparql';
         console.log(endpoint);
         const res = await axios.get(endpoint);
