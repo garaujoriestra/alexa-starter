@@ -7,7 +7,11 @@ const LaunchRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        return CelebrityBirthdaysIntentHandler.handle(handlerInput);
+        const speechText = handlerInput.t('WELCOME_MSG');
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .getResponse();
     }
 };
 
@@ -18,9 +22,10 @@ const TouchIntentHandler = {
     },
     handle(handlerInput) {
         console.log('Touch event arguments: ' + JSON.stringify(handlerInput.requestEnvelope.request.arguments[0]));
+        const speechText = handlerInput.t('FALLBACK_MSG');
         return handlerInput.responseBuilder
             .speak(speechText)
-            .reprompt(handlerInput.t('FALLBACK_MSG'))
+            .reprompt(speechText)
             .getResponse();
     }
 };
@@ -128,7 +133,6 @@ const ErrorHandler = {
 
 module.exports = {
     LaunchRequestHandler,
-    CelebrityBirthdaysIntentHandler,
     TouchIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,

@@ -1,6 +1,7 @@
 module.exports = {
     es: {
         translation: {
+            WELCOME_MSG: 'Bienveido',
             HELP_MSG: 'No te preocupes! Estoy aquí para ayudarte. ',
             SHORT_HELP_MSG: 'Te ayudo! ',
             GOODBYE_MSG: ['Hasta luego! ', 'Adios! ', 'Hasta pronto! ', 'Nos vemos! '],
